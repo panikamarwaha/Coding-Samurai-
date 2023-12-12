@@ -1,0 +1,16 @@
+import openai
+
+# Set your OpenAI API key
+openai.api_key = "your_api_key_here"
+
+# Define the user's message
+user_message = {"role": "user", "content": "Give me 3 ideas for apps I could build with OpenAI APIs"}
+
+# Create a list of messages containing the user's message
+messages = [user_message]
+
+# Make a request to the OpenAI API
+completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+
+# Print the generated response
+print(completion.choices[0].message.content)
